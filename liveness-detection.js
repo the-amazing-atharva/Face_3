@@ -151,7 +151,8 @@ async function detectFaces() {
         return;
       }
     } else {
-      statusDiv.textContent = "No Face Detected";
+      //   statusDiv.textContent = "No Face Detected";
+      statusDiv.textContent = "Checking Face Liveness";
     }
   } catch (error) {
     console.error("Error in face detection:", error);
