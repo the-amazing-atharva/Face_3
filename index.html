@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Face Liveness Detection</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.11.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api@1.7.12/dist/face-api.js"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      #video-container {
+        position: relative;
+        width: 640px;
+        height: 480px;
+      }
+      video,
+      canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      #status {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: red;
+        font-weight: bold;
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 5px;
+      }
+      /* Add styling for blink counter */
+      #blinkCounter {
+        position: absolute;
+        top: 40px;
+        left: 10px;
+        color: blue;
+        font-weight: bold;
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="video-container">
+      <video id="video" width="640" height="480" autoplay muted></video>
+      <canvas id="overlay"></canvas>
+      <div id="status">Checking Liveness...</div>
+      <!-- New div for displaying blink count -->
+      <div id="blinkCounter">Blinks: 0</div>
+    </div>
+
+    <script src="liveness-detection.js"></script>
+  </body>
+</html>
